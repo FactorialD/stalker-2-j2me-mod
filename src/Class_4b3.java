@@ -1868,48 +1868,48 @@ public class Class_4b3 {
       return GameScreen.gameScreen.sub_135b(this.var_53a.var_1c6, this.var_3c8 + 1);
    }
 
-   public void sub_788(Graphics var1, int var2, int var3, int var4, int var5) {
+   public void sub_788(Graphics g, int var2, int var3, int var4, int var5) {
       int var6 = var2 + var4 - 48;
-      var1.setClip(var6, var3, 48, 9);
-      var1.drawImage(this.rPanelImg, var6 - this.rPanelImg.getWidth() + 48, var3, 20);
-      var1.setClip(var6, var3 + var5 - 9, 50, 9);
-      var1.drawImage(this.rPanelImg, var6 - this.rPanelImg.getWidth() + 48, var3 + var5 - this.rPanelImg.getHeight(), 20);
+      g.setClip(var6, var3, 48, 9);
+      g.drawImage(this.rPanelImg, var6 - this.rPanelImg.getWidth() + 48, var3, 20);
+      g.setClip(var6, var3 + var5 - 9, 50, 9);
+      g.drawImage(this.rPanelImg, var6 - this.rPanelImg.getWidth() + 48, var3 + var5 - this.rPanelImg.getHeight(), 20);
 
       while(var6 > var2 - 4) {
-         var1.setClip(var6, var3, 4, 9);
-         var1.drawImage(this.rPanelImg, var6 - 45, var3, 20);
-         var1.setClip(var6, var3 + var5 - 9, 4, 9);
-         var1.drawImage(this.rPanelImg, var6 - 45, var5 + var3 - this.rPanelImg.getHeight(), 20);
+         g.setClip(var6, var3, 4, 9);
+         g.drawImage(this.rPanelImg, var6 - 45, var3, 20);
+         g.setClip(var6, var3 + var5 - 9, 4, 9);
+         g.drawImage(this.rPanelImg, var6 - 45, var5 + var3 - this.rPanelImg.getHeight(), 20);
          var6 -= 4;
       }
 
       for(int var7 = var3 + 9; var7 < var3 + var5 - 9; var7 += 3) {
-         var1.setClip(var2 + var4 - 4, var7, 4, 3);
-         var1.drawImage(this.rPanelImg, var2 + var4 - this.rPanelImg.getWidth(), var7 - 13, 20);
+         g.setClip(var2 + var4 - 4, var7, 4, 3);
+         g.drawImage(this.rPanelImg, var2 + var4 - this.rPanelImg.getWidth(), var7 - 13, 20);
       }
 
-      var1.setClip(0, 0, this.var_124, this.windowHeight);
+      g.setClip(0, 0, this.var_124, this.windowHeight);
    }
 
-   public void sub_7e4(Graphics var1, int var2, int var3, int var4, int var5) {
-      var1.setClip(var2, var3, 48, 9);
-      var1.drawImage(this.rPanelImg, var2, var3, 20);
-      var1.setClip(var2, var3 + var5 - 9, 48, 9);
-      var1.drawImage(this.rPanelImg, var2, var3 + var5 - this.rPanelImg.getHeight(), 20);
+   public void sub_7e4(Graphics g, int var2, int var3, int var4, int var5) {
+      g.setClip(var2, var3, 48, 9);
+      g.drawImage(this.rPanelImg, var2, var3, 20);
+      g.setClip(var2, var3 + var5 - 9, 48, 9);
+      g.drawImage(this.rPanelImg, var2, var3 + var5 - this.rPanelImg.getHeight(), 20);
 
       for(int var6 = var2 + 48; var6 <= var2 + var4; var6 += 4) {
-         var1.setClip(var6, var3, 4, 9);
-         var1.drawImage(this.rPanelImg, var6 - 45, var3, 20);
-         var1.setClip(var6, var3 + var5 - 9, 4, 9);
-         var1.drawImage(this.rPanelImg, var6 - 45, var5 + var3 - this.rPanelImg.getHeight(), 20);
+         g.setClip(var6, var3, 4, 9);
+         g.drawImage(this.rPanelImg, var6 - 45, var3, 20);
+         g.setClip(var6, var3 + var5 - 9, 4, 9);
+         g.drawImage(this.rPanelImg, var6 - 45, var5 + var3 - this.rPanelImg.getHeight(), 20);
       }
 
       for(int var7 = var3 + 9; var7 < var3 + var5 - 9; var7 += 3) {
-         var1.setClip(var2, var7, 4, 3);
-         var1.drawImage(this.rPanelImg, var2, var7 - 13, 20);
+         g.setClip(var2, var7, 4, 3);
+         g.drawImage(this.rPanelImg, var2, var7 - 13, 20);
       }
 
-      var1.setClip(0, 0, this.var_124, this.windowHeight);
+      g.setClip(0, 0, this.var_124, this.windowHeight);
    }
 
    public void sub_806(Graphics var1, Class_4f2 var2, boolean var3) {
