@@ -327,7 +327,6 @@ public class Class_4b3 {
 
             GameScreen.gameScreen.gameLogoMainImg = Image.createImage("/images/game_logo_main.png");
             if (Stars.var_b9) {
-               GameScreen.gameScreen.ltitulImg = Image.createImage("/mimage/ltitul.png");
                GameScreen.gameScreen.gameLogoSecondary = Image.createImage("/mimage/game_logo_secondary.png");
             }
 
@@ -2234,14 +2233,6 @@ public class Class_4b3 {
       curYPos = this.windowHeight - 43;
       int curXpos = (this.var_124 - GameScreen.gameScreen.gameLogoMainImg.getWidth()) / 2;
       g.drawImage(GameScreen.gameScreen.gameLogoMainImg, curXpos, curYPos, 20);
-//      if (GameScreen.gameScreen.ltitulImg != null) {
-//         curYPos += 28;
-//         curXpos = (this.var_124 - GameScreen.gameScreen.ltitulImg.getWidth()) / 2;
-//         g.drawImage(GameScreen.gameScreen.ltitulImg, curXpos, curYPos, 20);
-//         curYPos += 5;
-//         curXpos = (this.var_124 - GameScreen.gameScreen.gameLogoSecondary.getWidth()) / 2;
-//         g.drawImage(GameScreen.gameScreen.gameLogoSecondary, curXpos, curYPos, 20);
-//      }
       byte var4 = 5;
       curXpos = (this.var_124 - GameScreen.gameScreen.devLogoImg.getWidth()) / 2;
       g.drawImage(GameScreen.gameScreen.devLogoImg, curXpos, var4, 20);

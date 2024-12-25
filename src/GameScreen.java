@@ -143,7 +143,6 @@ public class GameScreen extends GameCanvas implements Runnable {
 	public int var_19fd = 0;
 	public Vector var_1a2b = null;
 	public Image gameLogoMainImg = null;
-	public Image ltitulImg = null;
 	public Image gameLogoSecondary = null;
 	public Image devLogoImg = null;
 	public IntroPainter introPainter = null;
@@ -255,7 +254,6 @@ public class GameScreen extends GameCanvas implements Runnable {
 
 	public void loadSomeImages() {
 		this.gameLogoMainImg = null;
-		this.ltitulImg = null;
 		this.gameLogoSecondary = null;
 		this.devLogoImg = null;
 
