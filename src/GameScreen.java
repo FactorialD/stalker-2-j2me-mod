@@ -30,8 +30,6 @@ public class GameScreen extends GameCanvas implements Runnable {
 	public static GameScreen gameScreen = null;
 	public GameActionState gameActionState = new GameActionState(this);
 	public int var_31a;
-	public Image star14Img = null;
-	public Image star20Img = null;
 	// location images
 	public Image[] locationsImgArr = new Image[9];
 	// Game map image
@@ -262,9 +260,6 @@ public class GameScreen extends GameCanvas implements Runnable {
 		this.devLogoImg = null;
 
 		try {
-			// load images
-			this.star14Img = Image.createImage("/images/star14.png");
-			this.star20Img = Image.createImage("/images/star20.png");
 			// load location images
 			int i;
 			for (i = 0; i < 9; i++) {
@@ -301,8 +296,6 @@ public class GameScreen extends GameCanvas implements Runnable {
 	}
 
 	public void unloadImagesAndGc() {
-		this.star14Img = null;
-		this.star20Img = null;
 		this.mapImg = null;
 		this.locationBgImg = null;
 		this.buttonImg = null;
@@ -892,19 +885,12 @@ public class GameScreen extends GameCanvas implements Runnable {
 			yPos += 3;
 		}
 
-//		if (starIndex <= 5) {
-			g.setClip(xPos - this.locationsImgArr[starIndex].getWidth() / 2,
+		g.setClip(xPos - this.locationsImgArr[starIndex].getWidth() / 2,
 					yPos - this.locationsImgArr[starIndex].getHeight() / 2, this.locationsImgArr[starIndex].getWidth(),
 					this.locationsImgArr[starIndex].getHeight());
-			g.drawImage(this.locationsImgArr[starIndex], xPos - this.locationsImgArr[starIndex].getWidth() / 2,
+		g.drawImage(this.locationsImgArr[starIndex], xPos - this.locationsImgArr[starIndex].getWidth() / 2,
 					yPos - this.locationsImgArr[starIndex].getHeight() / 2, 20);
-//      } else if (starIndex <= 4) {
-//    	  g.setClip(xPos, yPos, starHeight, starHeight);
-//         g.drawImage(this.star14Img, xPos - starHeight * starIndex, yPos, 20);
-//		} else {
-//			g.setClip(xPos, yPos, starHeight, starHeight);
-//			g.drawImage(this.star20Img, xPos - starHeight * (starIndex - 5), yPos, 20);
-//		}
+
 
 	}
 
