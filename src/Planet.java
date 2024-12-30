@@ -159,7 +159,7 @@ public class Planet {
       return var1;
    }
 
-   public int sub_330() {
+   public int getPopulationIncome() {
       if (this.var_1df == null) {
          return 0;
       } else {
@@ -171,7 +171,7 @@ public class Planet {
                var2 = this.sub_248();
             }
 
-            if (this.var_1df.sub_2ea() >= this.sub_248()) {
+            if (this.var_1df.getCurrentPopulation() >= this.sub_248()) {
                var3 = 0;
             } else {
                var3 = this.sub_248() * var2;
@@ -314,7 +314,7 @@ public class Planet {
          return 0;
       } else {
          byte var2 = 0;
-         int var3 = var2 + var1.var_108 * this.var_1df.sub_2ea() / 10;
+         int var3 = var2 + var1.var_108 * this.var_1df.getCurrentPopulation() / 10;
          var3 += this.sub_340(var1) * var1.var_154 / 100;
          if (this.var_1df.jobId == 511) {
             var3 += this.sub_35d(var1) / 2;
@@ -354,9 +354,9 @@ public class Planet {
          return 0;
       } else {
          byte var2 = 0;
-         int var3 = var2 + this.var_1df.sub_2ea();
+         int var3 = var2 + this.var_1df.getCurrentPopulation();
          if (var1.var_108 == 0) {
-            var3 += this.var_1df.sub_2ea() * 3;
+            var3 += this.var_1df.getCurrentPopulation() * 3;
          }
 
          var3 += this.var_1df.sub_341() * 3;
@@ -377,26 +377,26 @@ public class Planet {
          }
 
          if (var1.var_108 < 20) {
-            var3 -= this.var_1df.sub_2ea() * var1.var_108 / 10;
+            var3 -= this.var_1df.getCurrentPopulation() * var1.var_108 / 10;
          }
 
          if (var1.var_108 == 20) {
-            var3 -= this.var_1df.sub_2ea() * var1.var_108 / 7;
+            var3 -= this.var_1df.getCurrentPopulation() * var1.var_108 / 7;
          }
 
          if (var1.var_108 == 30 || var1.var_108 == 40) {
-            var3 -= this.var_1df.sub_2ea() * var1.var_108 / 6;
+            var3 -= this.var_1df.getCurrentPopulation() * var1.var_108 / 6;
          }
 
          if (var1.var_108 == 50) {
-            var3 -= this.var_1df.sub_2ea() * var1.var_108 / 5;
+            var3 -= this.var_1df.getCurrentPopulation() * var1.var_108 / 5;
          }
 
          if (this.sub_2c2() < 0) {
-            var3 += this.sub_2c2() * this.var_1df.sub_2ea() * 10;
+            var3 += this.sub_2c2() * this.var_1df.getCurrentPopulation() * 10;
          }
 
-         if (this.sub_248() == this.var_1df.sub_2ea()) {
+         if (this.sub_248() == this.var_1df.getCurrentPopulation()) {
             var3 -= this.sub_248();
          }
 
@@ -469,7 +469,7 @@ public class Planet {
          }
 
          // Population of location
-         String var6 = "" + this.var_1df.sub_2ea() + ".";
+         String var6 = "" + this.var_1df.getCurrentPopulation() + ".";
          var6 = var6 + this.sub_248();
          g.drawImage(GameScreen.gameScreen.np2Img, xPos + 110 - 18, yPos - 2, 20);
          GameScreen.gameScreen.sub_fcf(g, xPos + 110 - 20 - var6.length() * 5, yPos + 2, var6, GameScreen.gameScreen.rMiniFront2Img);
@@ -492,7 +492,7 @@ public class Planet {
       if (var5 <= 70) {
          curYPos += 3;
          char var10 = '+';
-         if (this.sub_330() < 0) {
+         if (this.getPopulationIncome() < 0) {
             var10 = '-';
          }
 
@@ -500,7 +500,7 @@ public class Planet {
          for(var11 = "" + this.var_1df.var_141; var11.length() < 3; var11 = "0" + var11) {
          }
 
-         var11 = this.var_1df.sub_2ea() + "." + var11 + "(" + var10 + Math.abs(this.sub_330()) + ")";
+         var11 = this.var_1df.getCurrentPopulation() + "." + var11 + "(" + var10 + Math.abs(this.getPopulationIncome()) + ")";
          this.sub_444(g, SomeUtilClass.getStr("НАС:"), var11, baseXPos + 5, curYPos, baseXPos + 30);
          curYPos += 4;
          if (curYPos >= var5) {
@@ -603,19 +603,19 @@ public class Planet {
          }
 
          Class_139 var10000 = this.var_1df;
-         var10000.var_141 += this.sub_330();
+         var10000.var_141 += this.getPopulationIncome();
          if (this.sub_2c2() < 0) {
             var1.sub_640(4, this.planetCoords, "");
          }
 
          if (this.var_1df.var_141 >= 1000) {
-            this.var_1df.sub_1e(this.var_1df.sub_2ea() + 1);
+            this.var_1df.sub_1e(this.var_1df.getCurrentPopulation() + 1);
             this.var_1df.var_141 -= 1000;
             var1.sub_640(1, this.planetCoords, "");
          }
 
          if (this.var_1df.var_141 < 0) {
-            if (this.var_1df.sub_2ea() <= 1) {
+            if (this.var_1df.getCurrentPopulation() <= 1) {
                var1.sub_640(3, this.planetCoords, "");
                this.var_1df = null;
                return;
@@ -661,8 +661,8 @@ public class Planet {
          var10000.var_178 -= GameScreen.gameScreen.buildingDictArr[this.var_1df.jobId].var_175;
          var1.sub_640(6, this.planetCoords, GameScreen.gameScreen.buildingDictArr[this.var_1df.jobId].var_11);
          if (this.var_1df.jobId == 23) {
-            if (this.var_1df.sub_2ea() < this.sub_248()) {
-               this.var_1df.sub_1e(this.var_1df.sub_2ea() + 1);
+            if (this.var_1df.getCurrentPopulation() < this.sub_248()) {
+               this.var_1df.sub_1e(this.var_1df.getCurrentPopulation() + 1);
             }
 
             var10000 = this.var_1df;
@@ -766,7 +766,7 @@ public class Planet {
          var5[var6] = this.sub_51a(var1, var2, var6, var3, var4);
       }
 
-      var5[6] = (this.sub_248() - this.var_1df.sub_2ea()) * var1.sub_c();
+      var5[6] = (this.sub_248() - this.var_1df.getCurrentPopulation()) * var1.sub_c();
       if (var1.var_430) {
          var5[6] *= 2;
       }
@@ -872,7 +872,7 @@ public class Planet {
       this.var_1df.sub_4b(0);
       this.var_1df.sub_92(0);
 
-      for(int var1 = 0; var1 < this.var_1df.sub_2ea() && this.sub_2c2() <= 0; ++var1) {
+      for(int var1 = 0; var1 < this.var_1df.getCurrentPopulation() && this.sub_2c2() <= 0; ++var1) {
          this.var_1df.sub_36(var1 + 1);
       }
 
@@ -880,7 +880,7 @@ public class Planet {
       Class_2a9 var2 = GameScreen.gameScreen.sub_122a(this.var_1df.var_4f);
       if (this.var_1df.jobId < 255) {
          var4 = 0;
-         if (var2.var_430 && this.sub_248() > this.var_1df.sub_2ea()) {
+         if (var2.var_430 && this.sub_248() > this.var_1df.getCurrentPopulation()) {
             var4 = 3;
          }
       }
@@ -903,7 +903,7 @@ public class Planet {
             var4 = 2;
          }
 
-         if (var2.var_430 && this.sub_248() > this.var_1df.sub_2ea()) {
+         if (var2.var_430 && this.sub_248() > this.var_1df.getCurrentPopulation()) {
             var4 = 3;
          }
       }

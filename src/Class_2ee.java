@@ -67,7 +67,7 @@ public class Class_2ee extends Class_4b3 {
          this.var_1c7[var6] = true;
       }
 
-      super.yPos = GameScreen.gameScreen.getHeight() - 65;
+      super.yPos = GameScreen.gameScreen.getHeight() - DESC_WINDOW_HEIGHT;
       this.var_2ca = 2;
       this.var_32a = GameScreen.gameScreen.sub_15d8(GameScreen.gameScreen.someXCellPos, GameScreen.gameScreen.someYCellPos, 1).sub_236() == var5.var_1c6;
       if (this.var_32a) {
@@ -77,7 +77,7 @@ public class Class_2ee extends Class_4b3 {
       }
 
       super.var_53a = var5;
-      super.var_4dd = var3;
+      super.somePlanet = var3;
       if (var3 != null) {
          if (!this.var_32a) {
             this.addMenu1Option(0, super.yPos + 9, SomeUtilClass.getStr("О ЛАГЕРЕ"), true);
@@ -252,7 +252,7 @@ public class Class_2ee extends Class_4b3 {
                if (this.var_32a) {
                   this.sub_73d(var1, var6 + 4, var4 + 26, var11.var_195);
                   this.sub_5de(var1, var6 + 24, var4 + 5, var11.var_1ef);
-                  if (this.var_1c7[var5] && super.var_4dd != null) {
+                  if (this.var_1c7[var5] && super.somePlanet != null) {
                      GameScreen.gameScreen.sub_fcf(var1, var6 + 9, var4 + 20, SomeUtilClass.getStr("ВЫБ"), GameScreen.gameScreen.rMiniFront2Img);
                   }
                }
@@ -279,7 +279,7 @@ public class Class_2ee extends Class_4b3 {
    }
 
    public void sub_52() {
-      if (super.var_3c8 != 3 && super.var_4dd != null) {
+      if (super.var_3c8 != 3 && super.somePlanet != null) {
          if (super.var_3c8 > 0) {
             --super.var_3c8;
          }
@@ -293,7 +293,7 @@ public class Class_2ee extends Class_4b3 {
    }
 
    public void sub_60() {
-      if (super.var_3c8 != 3 && super.var_4dd != null) {
+      if (super.var_3c8 != 3 && super.somePlanet != null) {
          if (super.var_3c8 < 2) {
             ++super.var_3c8;
          }
@@ -462,7 +462,7 @@ public class Class_2ee extends Class_4b3 {
    }
 
    public int sub_26b(int var1) {
-      return super.var_4dd != null && super.var_4dd.var_1df != null && super.var_53a.var_1c6 == super.var_4dd.var_1df.var_4f ? var1 * 6 : var1 * 4;
+      return super.somePlanet != null && super.somePlanet.var_1df != null && super.var_53a.var_1c6 == super.somePlanet.var_1df.var_4f ? var1 * 6 : var1 * 4;
    }
 
    public void sub_2a4(Graphics g, int var2) {

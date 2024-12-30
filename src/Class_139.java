@@ -124,7 +124,7 @@ public class Class_139 {
    }
 
    public void sub_208() {
-      this.sub_1e(this.sub_2ea() - 1);
+      this.sub_1e(this.getCurrentPopulation() - 1);
       if (this.sub_341() < 0) {
          if (this.sub_28a() > 0) {
             this.sub_92(this.sub_28a() - 1);
@@ -150,12 +150,12 @@ public class Class_139 {
       return this.var_5f & 255;
    }
 
-   public int sub_2ea() {
+   public int getCurrentPopulation() {
       return this.var_5f >> 24 & 255;
    }
 
    public int sub_341() {
-      return this.sub_2ea() - this.sub_27d() - this.sub_28a() - this.sub_249();
+      return this.getCurrentPopulation() - this.sub_27d() - this.sub_28a() - this.sub_249();
    }
 
    public String getJobName() {
@@ -173,7 +173,7 @@ public class Class_139 {
    }
 
    public int sub_385() {
-      int var1 = 7 - this.sub_2ea();
+      int var1 = 7 - this.getCurrentPopulation();
       if (this.sub_e3(1)) {
          --var1;
       }
@@ -247,7 +247,7 @@ public class Class_139 {
    }
 
    public int sub_42e() {
-      return GameScreen.gameScreen.sub_1797(this.var_4f, 7) ? 0 : this.sub_2ea();
+      return GameScreen.gameScreen.sub_1797(this.var_4f, 7) ? 0 : this.getCurrentPopulation();
    }
 
    public int sub_483() {

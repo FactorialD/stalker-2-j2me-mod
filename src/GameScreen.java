@@ -100,11 +100,11 @@ public class GameScreen extends GameCanvas implements Runnable {
 	public Upgrade[] buildingDictArr = new Upgrade[31]; // словарь построек
 	public Class_4b[] var_fc9 = new Class_4b[64];
 	public Class_35d var_1029 = null;
-	public Dto1[] var_1058 = new Dto1[6];
-	public Dto1[] var_1095 = new Dto1[5];
-	public Dto1[] var_10d4 = new Dto1[6];
-	public Dto1[] var_1116 = new Dto1[5];
-	public Dto1[] var_1171 = new Dto1[14];
+	public StalkerStatDto[] rangItemsArr = new StalkerStatDto[6];
+	public StalkerStatDto[] staminaItemsArr = new StalkerStatDto[5];
+	public StalkerStatDto[] costumeItemsArr = new StalkerStatDto[6];
+	public StalkerStatDto[] attackSpeedItemsArr = new StalkerStatDto[5];
+	public StalkerStatDto[] weaponItemsArr = new StalkerStatDto[14];
 	public byte[] var_1185 = new byte[14];
 	public int[] var_11cd = new int[14];
 	public Upgrade[] passiveUpgradesDictArr = new Upgrade[9]; // словарь пассивных улучшений
@@ -125,7 +125,7 @@ public class GameScreen extends GameCanvas implements Runnable {
 	public int var_1591;
 	public int var_15c2;
 	public boolean[][] var_15fe = (boolean[][]) null;
-	public Dto1[] var_164f = new Dto1[10];
+	public StalkerStatDto[] var_164f = new StalkerStatDto[10];
 	public boolean var_169a = true;
 	public boolean var_16d3 = true;
 	public boolean var_1730 = false;
@@ -191,9 +191,9 @@ public class GameScreen extends GameCanvas implements Runnable {
 		this.gcAndSleep();
 
 		for (var2 = 0; var2 < this.var_164f.length; ++var2) {
-			this.var_164f[var2] = new Dto1();
+			this.var_164f[var2] = new StalkerStatDto();
 			this.var_164f[var2].someStr = "";
-			this.var_164f[var2].someInt2 = 0;
+			this.var_164f[var2].price = 0;
 		}
 
 		this.sub_14();
@@ -416,26 +416,26 @@ public class GameScreen extends GameCanvas implements Runnable {
 			this.sub_224(SomeUtilClass.sub_106(var1, "L" + var2), this.var_fc9[var2].var_2d);
 		}
 
-		this.sub_1f2("corpus", this.var_1058, false);
-		this.sub_1f2("engine", this.var_1095, false);
-		this.sub_1f2("armor", this.var_10d4, false);
-		this.sub_1f2("computer", this.var_1116, false);
-		this.sub_1f2("weapon", this.var_1171, true);
+		this.sub_1f2("corpus", this.rangItemsArr, false);
+		this.sub_1f2("engine", this.staminaItemsArr, false);
+		this.sub_1f2("armor", this.costumeItemsArr, false);
+		this.sub_1f2("computer", this.attackSpeedItemsArr, false);
+		this.sub_1f2("weapon", this.weaponItemsArr, true);
 		var1 = SomeUtilClass.loadDictionaryFile(this, "stars");
 		SomeUtilClass.sub_e6(var1, this.locationNamesArr);
 	}
 
-	public void sub_1f2(String var1, Dto1[] var2, boolean var3) {
+	public void sub_1f2(String var1, StalkerStatDto[] var2, boolean var3) {
 		String var4 = SomeUtilClass.loadDictionaryFile(this, var1);
 
 		for (int var5 = 0; var5 < var2.length; ++var5) {
-			var2[var5] = new Dto1();
+			var2[var5] = new StalkerStatDto();
 			var2[var5].someStr = SomeUtilClass.sub_106(var4, "N" + var5);
 
 			try {
-				var2[var5].someInt2 = Integer.parseInt(SomeUtilClass.sub_106(var4, "C" + var5));
-				var2[var5].someInt1 = Integer.parseInt(SomeUtilClass.sub_106(var4, "S" + var5));
-				var2[var5].someInt3 = Integer.parseInt(SomeUtilClass.sub_106(var4, "P" + var5));
+				var2[var5].price = Integer.parseInt(SomeUtilClass.sub_106(var4, "C" + var5));
+				var2[var5].weight = Integer.parseInt(SomeUtilClass.sub_106(var4, "S" + var5));
+				var2[var5].statValue = Integer.parseInt(SomeUtilClass.sub_106(var4, "P" + var5));
 				var2[var5].someByte = Byte.parseByte(SomeUtilClass.sub_106(var4, "T" + var5));
 				if (var3) {
 					this.var_1185[var5] = Byte.parseByte(SomeUtilClass.sub_106(var4, "V" + var5));
@@ -1254,7 +1254,7 @@ public class GameScreen extends GameCanvas implements Runnable {
 									var6 = this.var_9b3.xPos + this.var_9b3.var_124 / 2;
 								}
 
-								this.var_9b3.var_73e = new Class_2e2(this.var_9b3.var_3c8, var6,
+								this.var_9b3.var_73e = new SomeUpgradeDrawClass(this.var_9b3.var_3c8, var6,
 										(this.getHeight() - 97) / 2, 94, 97, 3158064);
 								this.var_9b3.sub_258();
 							}
@@ -1285,13 +1285,13 @@ public class GameScreen extends GameCanvas implements Runnable {
 									this.var_9b3.var_b77 = null;
 								} else if (this.var_9b3.var_b77.menuId == 12) {
 									if (this.var_9b3.var_b77.var_3c8 == 0) {
-										this.var_9b3.var_4dd.var_1df.sub_3b5();
+										this.var_9b3.somePlanet.var_1df.sub_3b5();
 									}
 
 									this.var_9b3.var_b77 = null;
 								}
 							} else if (this.var_9b3.var_73e == null) {
-								this.var_9b3.drawSomeBuildingMenu();
+								this.var_9b3.drawUpgradesMenu();
 							} else {
 								this.var_9b3.sub_266();
 								this.var_9b3.var_73e = null;
@@ -1457,7 +1457,7 @@ public class GameScreen extends GameCanvas implements Runnable {
 				}
 
 				if (var1.var_3d2) {
-					var2.var_1df.sub_1e(var2.var_1df.sub_2ea() + 1);
+					var2.var_1df.sub_1e(var2.var_1df.getCurrentPopulation() + 1);
 				}
 			}
 
@@ -1592,21 +1592,21 @@ public class GameScreen extends GameCanvas implements Runnable {
 				if (this.var_e29.var_3c8 == 0) {
 					if (this.var_e29.var_2ca == 1) {
 						this.var_9b3 = new Class_4b3(5, (this.getWidth() - 82 - 30) / 2,
-								(this.getHeight() - 72 - 5) / 2, 112, 77, 3158064, this.var_e29.var_4dd);
+								(this.getHeight() - 72 - 5) / 2, 112, 77, 3158064, this.var_e29.somePlanet);
 					}
 
 					if (this.var_e29.var_2ca == 0) {
 						this.var_9b3 = new Class_4b3(7, 0, 0, this.getWidth(), this.getHeight(), 3158064,
-								this.var_e29.var_4dd);
+								this.var_e29.somePlanet);
 					}
 
 					if (this.var_e29.var_2ca == 2) {
-						if (this.var_e29.var_4dd.sub_150(this.var_d5c.var_1c6)) {
+						if (this.var_e29.somePlanet.sub_150(this.var_d5c.var_1c6)) {
 							this.var_9b3 = new Class_4b3(1, (this.getWidth() - 82) / 2, (this.getHeight() - 72) / 2, 82,
-									72, 3158064, this.var_e29.var_4dd);
+									72, 3158064, this.var_e29.somePlanet);
 						} else {
 							this.var_9b3 = new Class_4b3(6, 0, 0, 0, 0, 3158064, (Planet) null);
-							this.var_9b3.var_26e = this.var_e29.var_4dd.sub_96();
+							this.var_9b3.var_26e = this.var_e29.somePlanet.sub_96();
 							this.var_9b3.addMenu2Option(-1, this.var_9b3.yPos + 15,
 									SomeUtilClass.getStr("НЕ ИССЛЕДОВАНО"), false);
 						}
@@ -2163,7 +2163,7 @@ public class GameScreen extends GameCanvas implements Runnable {
 			for (int var4 = 0; var4 < this.planetsArr.size(); ++var4) {
 				Planet var3 = (Planet) this.planetsArr.elementAt(var4);
 				if (var3.var_1df != null && var3.var_1df.var_4f == var1.var_1c6) {
-					var2 += var3.var_1df.sub_2ea();
+					var2 += var3.var_1df.getCurrentPopulation();
 				}
 			}
 
@@ -2893,11 +2893,11 @@ public class GameScreen extends GameCanvas implements Runnable {
 		for (int var10 = 0; var10 < var7; ++var10) {
 			Class_4f2 var9 = gameScreen.sub_15d8(var1, var2, var10 + 1);
 			if (var9.sub_236() == var3) {
-				var5 += this.var_1116[var9.sub_18d(24)].someInt3;
+				var5 += this.attackSpeedItemsArr[var9.sub_18d(24)].statValue;
 			}
 
 			if (var9.sub_236() == var4) {
-				var6 += this.var_1116[var9.sub_18d(24)].someInt3;
+				var6 += this.attackSpeedItemsArr[var9.sub_18d(24)].statValue;
 			}
 		}
 
@@ -3852,9 +3852,9 @@ public class GameScreen extends GameCanvas implements Runnable {
 		} else {
 			int var3;
 			for (var3 = 0; var3 < 6; ++var3) {
-				if (this.var_10d4[var3].someByte == var1) {
+				if (this.costumeItemsArr[var3].someByte == var1) {
 					if (var2 == 0) {
-						return this.var_10d4[var3].someStr + " " + SomeUtilClass.getStr("БРОНЯ");
+						return this.costumeItemsArr[var3].someStr + " " + SomeUtilClass.getStr("БРОНЯ");
 					}
 
 					if (var2 == 1) {
@@ -3897,9 +3897,9 @@ public class GameScreen extends GameCanvas implements Runnable {
 			}
 
 			for (var3 = 0; var3 < 5; ++var3) {
-				if (this.var_1116[var3].someByte == var1) {
+				if (this.attackSpeedItemsArr[var3].someByte == var1) {
 					if (var2 == 0) {
-						return this.var_1116[var3].someStr + " " + SomeUtilClass.getStr("БОЕПРИПАСЫ");
+						return this.attackSpeedItemsArr[var3].someStr + " " + SomeUtilClass.getStr("БОЕПРИПАСЫ");
 					}
 
 					if (var2 == 1) {
@@ -3912,9 +3912,9 @@ public class GameScreen extends GameCanvas implements Runnable {
 			}
 
 			for (var3 = 0; var3 < 5; ++var3) {
-				if (this.var_1095[var3].someByte == var1) {
+				if (this.staminaItemsArr[var3].someByte == var1) {
 					if (var2 == 0) {
-						return this.var_1095[var3].someStr + " " + SomeUtilClass.getStr("ВЫНОСЛИВОСТЬ");
+						return this.staminaItemsArr[var3].someStr + " " + SomeUtilClass.getStr("ВЫНОСЛИВОСТЬ");
 					}
 
 					if (var2 == 1) {
@@ -3927,9 +3927,9 @@ public class GameScreen extends GameCanvas implements Runnable {
 			}
 
 			for (var3 = 0; var3 < 14; ++var3) {
-				if (this.var_1171[var3].someByte == var1) {
+				if (this.weaponItemsArr[var3].someByte == var1) {
 					if (var2 == 0) {
-						return this.var_1171[var3].someStr;
+						return this.weaponItemsArr[var3].someStr;
 					}
 
 					if (var2 == 1) {
@@ -4230,7 +4230,7 @@ public class GameScreen extends GameCanvas implements Runnable {
 
 				for (int var4 = 0; var4 < this.var_164f.length; ++var4) {
 					var3.writeUTF(this.var_164f[var4].someStr);
-					var3.writeInt(this.var_164f[var4].someInt2);
+					var3.writeInt(this.var_164f[var4].price);
 				}
 
 				var3.close();
@@ -4262,7 +4262,7 @@ public class GameScreen extends GameCanvas implements Runnable {
 
 					for (int var6 = 0; var6 < this.var_164f.length; ++var6) {
 						this.var_164f[var6].someStr = var5.readUTF();
-						this.var_164f[var6].someInt2 = var5.readInt();
+						this.var_164f[var6].price = var5.readInt();
 					}
 
 					var5.close();
@@ -4992,7 +4992,7 @@ public class GameScreen extends GameCanvas implements Runnable {
 						break;
 					}
 
-					while (var2.sub_530() < this.var_1095[var4].someInt3) {
+					while (var2.sub_530() < this.staminaItemsArr[var4].statValue) {
 						++var10;
 						var2.sub_1d7(12, var10);
 						if (var2.sub_4d4() < 0) {
@@ -5078,11 +5078,11 @@ public class GameScreen extends GameCanvas implements Runnable {
 
 		int var5;
 		for (var5 = 0; var5 < this.var_164f.length; ++var5) {
-			if (var2 >= this.var_164f[var5].someInt2) {
+			if (var2 >= this.var_164f[var5].price) {
 				var3 = this.var_164f[var5].someStr;
-				var4 = this.var_164f[var5].someInt2;
+				var4 = this.var_164f[var5].price;
 				this.var_164f[var5].someStr = var1.playerGroupName;
-				this.var_164f[var5].someInt2 = var2;
+				this.var_164f[var5].price = var2;
 				break;
 			}
 		}
@@ -5090,10 +5090,10 @@ public class GameScreen extends GameCanvas implements Runnable {
 		for (int var6 = this.var_164f.length - 1; var6 >= var5 + 1; --var6) {
 			if (var6 == var5 + 1) {
 				this.var_164f[var6].someStr = var3;
-				this.var_164f[var6].someInt2 = var4;
+				this.var_164f[var6].price = var4;
 			} else {
 				this.var_164f[var6].someStr = this.var_164f[var6 - 1].someStr;
-				this.var_164f[var6].someInt2 = this.var_164f[var6 - 1].someInt2;
+				this.var_164f[var6].price = this.var_164f[var6 - 1].price;
 			}
 		}
 

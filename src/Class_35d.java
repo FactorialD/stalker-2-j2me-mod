@@ -204,18 +204,18 @@ public class Class_35d extends Class_4b3 {
       }
    }
 
-   public void sub_1c4(GameScreen var1, Graphics var2) {
+   public void sub_1c4(GameScreen gameScreen, Graphics g) {
       if (super.var_1f3 < 100) {
          super.var_1f3 += 12;
       }
 
       byte var3 = 23;
       if (super.var_3c8 == 0) {
-         this.sub_491(var2, 5, this.var_a - var3 + 7, super.var_124 - 10);
+         this.sub_491(g, 5, this.var_a - var3 + 7, super.var_124 - 10);
       }
 
-      var1.sub_1086(var2, 5, this.var_a - var3, super.var_124 - 10);
-      this.sub_2a7(var2, 5, this.var_a - var3 + 9);
+      gameScreen.sub_1086(g, 5, this.var_a - var3, super.var_124 - 10);
+      this.sub_2a7(g, 5, this.var_a - var3 + 9);
       if (this.var_a < var3) {
          this.var_a += 5;
          if (this.var_a > var3) {
@@ -223,10 +223,10 @@ public class Class_35d extends Class_4b3 {
          }
       }
 
-      this.sub_223(var2);
+      this.sub_223(g);
       if (this.var_1d8 != null) {
-         this.var_1d8.sub_108(var2);
-         this.sub_514(var2, this.var_1d8.xPos + 4, this.var_1d8.yPos + 11, this.var_1d8.var_124 - 8, 30);
+         this.var_1d8.sub_108(g);
+         this.sub_514(g, this.var_1d8.xPos + 4, this.var_1d8.yPos + 11, this.var_1d8.var_124 - 8, 30);
          String var4 = GameScreen.gameScreen.sub_19a5(this.var_1a3, 1);
          String var5 = "";
          if (GameScreen.gameScreen.sub_19a5(this.var_1a3, 2) != "OK") {
@@ -235,7 +235,7 @@ public class Class_35d extends Class_4b3 {
          }
 
          if (var4 == "A") {
-            var5 = SomeUtilClass.getStr("ЗАЩИТА НОВОЙ БРОНИ ДЛЯ СТАЛКЕРОВ БУДЕТ ") + GameScreen.gameScreen.var_10d4[GameScreen.gameScreen.var_1d2e].someInt3;
+            var5 = SomeUtilClass.getStr("ЗАЩИТА НОВОЙ БРОНИ ДЛЯ СТАЛКЕРОВ БУДЕТ ") + GameScreen.gameScreen.costumeItemsArr[GameScreen.gameScreen.var_1d2e].statValue;
          }
 
          if (var4 == "B") {
@@ -247,22 +247,22 @@ public class Class_35d extends Class_4b3 {
          }
 
          if (var4 == "C") {
-            var5 = SomeUtilClass.getStr("МОЩНОСТЬ НОВЫХ БОЕПРИПАСОВ БУДЕТ ") + GameScreen.gameScreen.var_1116[GameScreen.gameScreen.var_1d2e].someInt3;
+            var5 = SomeUtilClass.getStr("МОЩНОСТЬ НОВЫХ БОЕПРИПАСОВ БУДЕТ ") + GameScreen.gameScreen.attackSpeedItemsArr[GameScreen.gameScreen.var_1d2e].statValue;
          }
 
          if (var4 == "E") {
-            var5 = SomeUtilClass.getStr("ВЫНОСЛИВОСТЬ СТАЛКЕРОВ БУДЕТ ") + GameScreen.gameScreen.var_1095[GameScreen.gameScreen.var_1d2e].someInt3;
+            var5 = SomeUtilClass.getStr("ВЫНОСЛИВОСТЬ СТАЛКЕРОВ БУДЕТ ") + GameScreen.gameScreen.staminaItemsArr[GameScreen.gameScreen.var_1d2e].statValue;
          }
 
          if (var4 == "W") {
-            var5 = SomeUtilClass.getStr("УРОН ОРУЖИЯ ") + GameScreen.gameScreen.var_1171[GameScreen.gameScreen.var_1d2e].someInt3;
+            var5 = SomeUtilClass.getStr("УРОН ОРУЖИЯ ") + GameScreen.gameScreen.weaponItemsArr[GameScreen.gameScreen.var_1d2e].statValue;
          }
 
          if (var4 == "ART") {
             var5 = SomeUtilClass.getStr("ТАИНСТВЕННЫЙ АРТЕФАКТ НАЙДЕННЫЙ В ЛАГЕРЕ ") + GameScreen.gameScreen.artifactsDictArr[GameScreen.gameScreen.var_1d2e].var_68;
          }
 
-         SomeUtilClass.sub_1db(var2, var5, this.var_1d8.xPos + 7, this.var_1d8.yPos + 11 + 5, this.var_1d8.xPos + this.var_1d8.var_124 - 5, this.var_1d8.yPos + 11 + 5 + 30);
+         SomeUtilClass.drawLittleTextInRect2(g, var5, this.var_1d8.xPos + 7, this.var_1d8.yPos + 11 + 5, this.var_1d8.xPos + this.var_1d8.var_124 - 5, this.var_1d8.yPos + 11 + 5 + 30);
       }
 
       if (this.var_3a > 0 && this.var_3a < 10) {
@@ -279,14 +279,14 @@ public class Class_35d extends Class_4b3 {
 
    }
 
-   public void sub_223(Graphics var1) {
+   public void sub_223(Graphics g) {
       int var3;
       byte var4;
       int var6;
       if (this.var_3a > 0 && this.var_262 == 0) {
          byte var9 = 26;
          var4 = 5;
-         this.sub_389(var1, var4, var9, super.var_124 - var4 * 2, this.var_194);
+         this.drawSomeScienceMenuRows(g, var4, var9, super.var_124 - var4 * 2, this.var_194);
          int var11 = var9 + 6;
          var6 = 0;
          boolean var7 = false;
@@ -303,15 +303,15 @@ public class Class_35d extends Class_4b3 {
                   ++var6;
                   if (var6 >= this.var_153) {
                      if (var6 == super.var_3c8) {
-                        this.sub_491(var1, var4 + 20, var11 - 3, super.var_124 - var4 * 2 - 25);
+                        this.sub_491(g, var4 + 20, var11 - 3, super.var_124 - var4 * 2 - 25);
                         if (super.var_3c8 > 0) {
                            this.var_20a = var11 - 3;
                         }
                      }
 
                      var2 = GameScreen.gameScreen.sub_19a5(var8, 0);
-                     GameScreen.gameScreen.sub_fcf(var1, var4 + 22, var11, var2, GameScreen.gameScreen.rMiniFront2Img);
-                     this.sub_254(var1, GameScreen.gameScreen.sub_19a5(var8, 1), var4 + 6, var11 - 2);
+                     GameScreen.gameScreen.sub_fcf(g, var4 + 22, var11, var2, GameScreen.gameScreen.rMiniFront2Img);
+                     this.sub_254(g, GameScreen.gameScreen.sub_19a5(var8, 1), var4 + 6, var11 - 2);
                      var11 += 11;
                   }
                }
@@ -329,15 +329,15 @@ public class Class_35d extends Class_4b3 {
                   ++var6;
                   if (var6 >= this.var_153) {
                      if (var6 == super.var_3c8) {
-                        this.sub_491(var1, var4 + 20, var11 - 3, super.var_124 - var4 * 2 - 25);
+                        this.sub_491(g, var4 + 20, var11 - 3, super.var_124 - var4 * 2 - 25);
                         if (super.var_3c8 > 0) {
                            this.var_20a = var11 - 3;
                         }
                      }
 
                      var2 = SomeUtilClass.getStr("АРТЕФАТК") + " " + (var8 + 1);
-                     GameScreen.gameScreen.sub_fcf(var1, var4 + 22, var11, var2, GameScreen.gameScreen.rMiniFront2Img);
-                     this.sub_254(var1, "ART", var4 + 6, var11 - 2);
+                     GameScreen.gameScreen.sub_fcf(g, var4 + 22, var11, var2, GameScreen.gameScreen.rMiniFront2Img);
+                     this.sub_254(g, "ART", var4 + 6, var11 - 2);
                      var11 += 11;
                   }
                }
@@ -345,42 +345,42 @@ public class Class_35d extends Class_4b3 {
          }
 
          if (this.var_153 > 1) {
-            var1.drawImage(super.curUpImg, var4 + super.var_124 - var4 * 2 - 14, var9 + 6, 20);
+            g.drawImage(super.curUpImg, var4 + super.var_124 - var4 * 2 - 14, var9 + 6, 20);
          }
 
          if (var7) {
-            var1.drawImage(super.curDownImg, var4 + super.var_124 - var4 * 2 - 14, var9 + this.var_194 - 11, 20);
+            g.drawImage(super.curDownImg, var4 + super.var_124 - var4 * 2 - 14, var9 + this.var_194 - 11, 20);
          }
 
          var3 = var9 + this.var_194 + 4;
-         this.sub_389(var1, var4, var3, super.var_124 - var4 * 2, 20);
+         this.drawSomeScienceMenuRows(g, var4, var3, super.var_124 - var4 * 2, 20);
          if (GameScreen.gameScreen.var_d5c.var_5da == 0) {
             var2 = SomeUtilClass.getStr("ПУСТО");
-            this.sub_3c7(var1, var4 + 5, var3 + 3, 2, 0, false);
-            GameScreen.gameScreen.drawFancyText(var1, var4 + (super.var_124 - var4 * 2 - var2.length() * 8) / 2, var3 + 7, var2, super.var_42f);
+            this.sub_3c7(g, var4 + 5, var3 + 3, 2, 0, false);
+            GameScreen.gameScreen.drawFancyText(g, var4 + (super.var_124 - var4 * 2 - var2.length() * 8) / 2, var3 + 7, var2, super.var_42f);
          } else {
-            this.sub_3c7(var1, var4 + 5, var3 + 3, 2, 0, false);
+            this.sub_3c7(g, var4 + 5, var3 + 3, 2, 0, false);
             var2 = GameScreen.gameScreen.sub_19a5(GameScreen.gameScreen.var_d5c.var_5da, 0);
             if (this.var_217) {
-               this.sub_491(var1, var4 + 20, this.var_20a, super.var_124 - var4 * 2 - 25);
-               GameScreen.gameScreen.sub_fcf(var1, var4 + 22, this.var_20a + 3, var2, GameScreen.gameScreen.rMiniFront2Img);
+               this.sub_491(g, var4 + 20, this.var_20a, super.var_124 - var4 * 2 - 25);
+               GameScreen.gameScreen.sub_fcf(g, var4 + 22, this.var_20a + 3, var2, GameScreen.gameScreen.rMiniFront2Img);
                this.var_20a += 10;
                if (this.var_20a >= var3) {
                   this.var_217 = false;
                }
             } else {
-               GameScreen.gameScreen.sub_fcf(var1, var4 + 22, var3 + 8, var2, GameScreen.gameScreen.rMiniFront2Img);
-               this.sub_254(var1, GameScreen.gameScreen.sub_19a5(GameScreen.gameScreen.var_d5c.var_5da, 1), var4 + super.var_124 - var4 * 2 - 20, var3 + 6);
+               GameScreen.gameScreen.sub_fcf(g, var4 + 22, var3 + 8, var2, GameScreen.gameScreen.rMiniFront2Img);
+               this.sub_254(g, GameScreen.gameScreen.sub_19a5(GameScreen.gameScreen.var_d5c.var_5da, 1), var4 + super.var_124 - var4 * 2 - 20, var3 + 6);
                var3 += 24;
                if (this.var_8e != null) {
-                  var1.drawImage(this.var_8e, var4 + 3, var3, 20);
+                  g.drawImage(this.var_8e, var4 + 3, var3, 20);
                }
 
                var2 = GameScreen.gameScreen.sub_d1d(GameScreen.gameScreen.var_d5c, GameScreen.gameScreen.var_d5c.var_5da, this.var_2b3) + " " + SomeUtilClass.getStr("ХОДОВ");
-               GameScreen.gameScreen.drawFancyText(var1, var4 + 24, var3 + 3, var2, super.var_42f);
+               GameScreen.gameScreen.drawFancyText(g, var4 + 24, var3 + 3, var2, super.var_42f);
                var2 = "+" + this.var_2b3 + " " + SomeUtilClass.getStr("ИТ") + " (";
                var2 = var2 + GameScreen.gameScreen.sub_cd0(GameScreen.gameScreen.var_d5c.var_5da) + " " + SomeUtilClass.getStr("ИТ") + ")";
-               GameScreen.gameScreen.sub_fcf(var1, var4 + 24, var3 + 3 + 9, var2, GameScreen.gameScreen.rMiniFront2Img);
+               GameScreen.gameScreen.sub_fcf(g, var4 + 24, var3 + 3 + 9, var2, GameScreen.gameScreen.rMiniFront2Img);
             }
          }
       } else {
@@ -408,7 +408,7 @@ public class Class_35d extends Class_4b3 {
          }
 
          for(var6 = 0; var6 < 5; ++var6) {
-            this.sub_4b3(var1, var10, var3, super.var_124 - var5, 85, GameScreen.gameScreen.var_d5c.var_513[var6], SomeUtilClass.scienceBranchNamesArr[var6], GameScreen.gameScreen.var_d5c.var_4b4[var6], var6 + 1 == super.var_3c8, GameScreen.gameScreen.var_d5c.sub_46d(var6, this.var_303), GameScreen.gameScreen.var_d5c.sub_40d(var6));
+            this.sub_4b3(g, var10, var3, super.var_124 - var5, 85, GameScreen.gameScreen.var_d5c.var_513[var6], SomeUtilClass.scienceBranchNamesArr[var6], GameScreen.gameScreen.var_d5c.var_4b4[var6], var6 + 1 == super.var_3c8, GameScreen.gameScreen.var_d5c.sub_46d(var6, this.var_303), GameScreen.gameScreen.var_d5c.sub_40d(var6));
             if (super.windowHeight > 200) {
                var3 += 21;
             } else {
@@ -416,7 +416,7 @@ public class Class_35d extends Class_4b3 {
             }
          }
 
-         this.sub_4cb(var1, var5, var3, super.var_124 - var5 * 2);
+         this.sub_4cb(g, var5, var3, super.var_124 - var5 * 2);
       }
 
    }

@@ -122,14 +122,12 @@ public class SomeUtilClass {
    }
 
    public static int sub_1a5(String var0, int var1) {
-      GameScreen gameScreen = GameScreen.gameScreen;
       return sub_1c6(var0, var1, 5 + 4);
    }
 
    public static int sub_1c6(String var0, int var1, int var2) {
       new String();
       int var4 = 0;
-      boolean var5 = false;
       int var6 = 0;
       int var7 = 0;
       int var8 = 0;
@@ -143,16 +141,13 @@ public class SomeUtilClass {
 
          String var3 = var0.substring(var4, var9);
          int var10000 = var3.length();
-         GameScreen gameScreen = GameScreen.gameScreen;
          if (var10000 * 5 + var7 > var1) {
             var8 += var2;
             ++var6;
             var7 = 0;
          }
 
-         gameScreen = GameScreen.gameScreen;
          int var10 = 5 * var3.length();
-         GameScreen gameScreen2 = GameScreen.gameScreen;
          var7 += var10 + 5;
          var4 = var9 + 1;
       } while(var9 < var0.length());
@@ -160,24 +155,20 @@ public class SomeUtilClass {
       return var6 + 1;
    }
 
-   public static boolean sub_1db(Graphics var0, String var1, int var2, int var3, int var4, int var5) {
-      GameScreen gameScreen = GameScreen.gameScreen;
-      return sub_236(var0, var1, var2, var3, var4, var5, 5 + 4);
+   public static boolean drawLittleTextInRect2(Graphics g, String str, int xPos, int yPos, int width, int length) {
+      return drawLittleTextInRect(g, str, xPos, yPos, width, length, 5 + 4);
    }
 
-   public static boolean sub_236(Graphics g, String var1, int var2, int var3, int var4, int var5, int var6) {
-      new String();
+   public static boolean drawLittleTextInRect(Graphics g, String str, int xPos, int yPos, int width, int length, int yStep) {
       int var8 = 0;
-      boolean var9 = false;
-      boolean var10 = false;
       int var11 = 0;
       boolean var12 = false;
-      int var13 = var2;
-      int var14 = var3;
+      int curXPos = xPos;
+      int curYPos = yPos;
 
       while(true) {
-         int var15 = var1.indexOf(32, var8);
-         int var16 = var1.indexOf(10, var8);
+         int var15 = str.indexOf(32, var8);
+         int var16 = str.indexOf(10, var8);
          if (var16 >= 0 && var16 < var15) {
             var15 = var16;
             var12 = true;
@@ -186,36 +177,34 @@ public class SomeUtilClass {
          }
 
          if (var15 <= 0) {
-            var15 = var1.length();
+            var15 = str.length();
          }
 
-         String var7 = var1.substring(var8, var15);
+         String var7 = str.substring(var8, var15);
          int var10000 = var7.length();
-         GameScreen var10001 = GameScreen.gameScreen;
-         if (var10000 * 5 + var13 > var4) {
-            var14 += var6;
+         if (var10000 * 5 + curXPos > width) {
+            curYPos += yStep;
             ++var11;
-            var13 = var2;
-            if (var14 >= var5) {
+            curXPos = xPos;
+            if (curYPos >= length) {
                break;
             }
          }
 
-         GameScreen.gameScreen.sub_fcf(g, var13, var14, var7, GameScreen.gameScreen.rMiniFront2Img);
-         var10001 = GameScreen.gameScreen;
+         GameScreen.gameScreen.sub_fcf(g, curXPos, curYPos, var7, GameScreen.gameScreen.rMiniFront2Img);
          int var17 = 5 * var7.length();
-         GameScreen var10002 = GameScreen.gameScreen;
-         var13 += var17 + 5;
+
+         curXPos += var17 + 5;
          var8 = var15 + 1;
-         if (var15 >= var1.length()) {
+         if (var15 >= str.length()) {
             break;
          }
 
          if (var12) {
-            var14 += var6;
+            curYPos += yStep;
             ++var11;
-            var13 = var2;
-            if (var14 >= var5) {
+            curXPos = xPos;
+            if (curYPos >= length) {
                break;
             }
          }

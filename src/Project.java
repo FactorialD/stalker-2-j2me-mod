@@ -143,29 +143,29 @@ public class Project { //как минимум это проект корабл�
    }
 
    public int sub_492() {
-      int var1 = GameScreen.gameScreen.var_1058[this.sub_18d(28)].someInt1 / 100;
+      int var1 = GameScreen.gameScreen.rangItemsArr[this.sub_18d(28)].weight / 100;
       if (var1 <= 0) {
          var1 = 1;
       }
 
-      int var2 = GameScreen.gameScreen.var_1095[this.sub_18d(20)].someInt1 * this.sub_18d(12);
-      var2 += GameScreen.gameScreen.var_10d4[this.sub_18d(8)].someInt1 * this.sub_18d(0) * var1;
-      var2 += GameScreen.gameScreen.var_1116[this.sub_18d(24)].someInt1;
-      var2 += GameScreen.gameScreen.var_1171[this.sub_3a5()].someInt1 * this.sub_400();
+      int var2 = GameScreen.gameScreen.staminaItemsArr[this.sub_18d(20)].weight * this.sub_18d(12);
+      var2 += GameScreen.gameScreen.costumeItemsArr[this.sub_18d(8)].weight * this.sub_18d(0) * var1;
+      var2 += GameScreen.gameScreen.attackSpeedItemsArr[this.sub_18d(24)].weight;
+      var2 += GameScreen.gameScreen.weaponItemsArr[this.sub_3a5()].weight * this.sub_400();
       return var2;
    }
 
    public int sub_4d4() {
-      return GameScreen.gameScreen.var_1058[this.sub_18d(28)].someInt1 - this.sub_492();
+      return GameScreen.gameScreen.rangItemsArr[this.sub_18d(28)].weight - this.sub_492();
    }
 
    public int sub_530() {
       if (this.sub_4d4() < 0) {
          return 0;
       } else if (this.sub_18d(28) == 5) {
-         return GameScreen.gameScreen.var_1095[this.sub_18d(20)].someInt3;
+         return GameScreen.gameScreen.staminaItemsArr[this.sub_18d(20)].statValue;
       } else {
-         int var1 = GameScreen.gameScreen.var_1095[this.sub_18d(20)].someInt3 * this.sub_18d(12) * 100 / this.sub_492();
+         int var1 = GameScreen.gameScreen.staminaItemsArr[this.sub_18d(20)].statValue * this.sub_18d(12) * 100 / this.sub_492();
          if (this.sub_c6(2)) {
             var1 *= 4;
          }
@@ -178,12 +178,12 @@ public class Project { //как минимум это проект корабл�
       if (this.sub_4d4() < 0) {
          return 0;
       } else {
-         int var1 = GameScreen.gameScreen.var_1058[this.sub_18d(28)].someInt1 / 100;
+         int var1 = GameScreen.gameScreen.rangItemsArr[this.sub_18d(28)].weight / 100;
          if (var1 <= 0) {
             var1 = 1;
          }
 
-         int var2 = GameScreen.gameScreen.var_10d4[this.sub_18d(8)].someInt3 * this.sub_18d(0) * var1;
+         int var2 = GameScreen.gameScreen.costumeItemsArr[this.sub_18d(8)].statValue * this.sub_18d(0) * var1;
          if (this.sub_c6(3)) {
             var2 *= 4;
          }
@@ -200,7 +200,7 @@ public class Project { //как минимум это проект корабл�
       if (this.sub_4d4() < 0) {
          return 0;
       } else {
-         int var2 = GameScreen.gameScreen.var_1171[this.sub_3a5()].someInt3 * var1;
+         int var2 = GameScreen.gameScreen.weaponItemsArr[this.sub_3a5()].statValue * var1;
          if (this.sub_c6(8)) {
             var2 *= 4;
          }
@@ -210,12 +210,12 @@ public class Project { //как минимум это проект корабл�
    }
 
    public int sub_601(int var1) {
-      int var2 = GameScreen.gameScreen.var_1058[this.sub_18d(28)].someInt1 / 100;
-      int var3 = GameScreen.gameScreen.var_1095[this.sub_18d(20)].someInt2 * this.sub_18d(12);
-      var3 += GameScreen.gameScreen.var_10d4[this.sub_18d(8)].someInt2 * this.sub_18d(0) * var2;
-      var3 += GameScreen.gameScreen.var_1116[this.sub_18d(24)].someInt2;
-      var3 += GameScreen.gameScreen.var_1171[this.sub_3a5()].someInt2 * this.sub_400();
-      var3 += GameScreen.gameScreen.var_1058[this.sub_18d(28)].someInt2;
+      int var2 = GameScreen.gameScreen.rangItemsArr[this.sub_18d(28)].weight / 100;
+      int var3 = GameScreen.gameScreen.staminaItemsArr[this.sub_18d(20)].price * this.sub_18d(12);
+      var3 += GameScreen.gameScreen.costumeItemsArr[this.sub_18d(8)].price * this.sub_18d(0) * var2;
+      var3 += GameScreen.gameScreen.attackSpeedItemsArr[this.sub_18d(24)].price;
+      var3 += GameScreen.gameScreen.weaponItemsArr[this.sub_3a5()].price * this.sub_400();
+      var3 += GameScreen.gameScreen.rangItemsArr[this.sub_18d(28)].price;
       if (GameScreen.gameScreen.sub_1797(var1, 2)) {
          var3 -= var3 / 4;
       }
@@ -262,22 +262,22 @@ public class Project { //как минимум это проект корабл�
       int var8 = var2 + var4 - this.projectName.length() * 5 - 5;
       GameScreen.gameScreen.sub_fcf(var1, var8, var7, this.projectName, GameScreen.gameScreen.rMiniFront2Img);
       var7 += 10;
-      var8 = var2 + var4 - GameScreen.gameScreen.var_1058[this.sub_18d(28)].someStr.length() * 5 - 5;
-      GameScreen.gameScreen.sub_fcf(var1, var8, var7, GameScreen.gameScreen.var_1058[this.sub_18d(28)].someStr, GameScreen.gameScreen.rMiniFront2Img);
+      var8 = var2 + var4 - GameScreen.gameScreen.rangItemsArr[this.sub_18d(28)].someStr.length() * 5 - 5;
+      GameScreen.gameScreen.sub_fcf(var1, var8, var7, GameScreen.gameScreen.rangItemsArr[this.sub_18d(28)].someStr, GameScreen.gameScreen.rMiniFront2Img);
       var7 += 10;
-      String var6 = this.sub_18d(12) + "-" + GameScreen.gameScreen.var_1095[this.sub_18d(20)].someStr;
+      String var6 = this.sub_18d(12) + "-" + GameScreen.gameScreen.staminaItemsArr[this.sub_18d(20)].someStr;
       var8 = var2 + var4 - var6.length() * 5 - 5;
       GameScreen.gameScreen.sub_fcf(var1, var8, var7, var6, GameScreen.gameScreen.rMiniFront2Img);
       var7 += 10;
-      var6 = this.sub_18d(0) + "-" + GameScreen.gameScreen.var_10d4[this.sub_18d(8)].someStr;
+      var6 = this.sub_18d(0) + "-" + GameScreen.gameScreen.costumeItemsArr[this.sub_18d(8)].someStr;
       var8 = var2 + var4 - var6.length() * 5 - 5;
       GameScreen.gameScreen.sub_fcf(var1, var8, var7, var6, GameScreen.gameScreen.rMiniFront2Img);
       var7 += 10;
-      var6 = GameScreen.gameScreen.var_1116[this.sub_18d(24)].someStr;
+      var6 = GameScreen.gameScreen.attackSpeedItemsArr[this.sub_18d(24)].someStr;
       var8 = var2 + var4 - var6.length() * 5 - 5;
       GameScreen.gameScreen.sub_fcf(var1, var8, var7, var6, GameScreen.gameScreen.rMiniFront2Img);
       var7 += 10;
-      var6 = this.sub_400() + "-" + GameScreen.gameScreen.var_1171[this.sub_3a5()].someStr;
+      var6 = this.sub_400() + "-" + GameScreen.gameScreen.weaponItemsArr[this.sub_3a5()].someStr;
       var8 = var2 + var4 - var6.length() * 5 - 5;
       GameScreen.gameScreen.sub_fcf(var1, var8, var7, var6, GameScreen.gameScreen.rMiniFront2Img);
       var7 += 10;

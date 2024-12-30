@@ -37,7 +37,7 @@ public class Class_556 {
    }
 
    public void sub_80() {
-      this.var_198 = 60 - GameScreen.gameScreen.var_1116[this.var_64.sub_18d(24)].someInt3;
+      this.var_198 = 60 - GameScreen.gameScreen.attackSpeedItemsArr[this.var_64.sub_18d(24)].statValue;
    }
 
    public void sub_9f() {

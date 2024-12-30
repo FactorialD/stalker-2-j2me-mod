@@ -147,7 +147,7 @@ public class Class_2a9 {
       int var1 = 0;
 
       for(int var2 = 0; var2 < 5; ++var2) {
-         if (this.sub_139(GameScreen.gameScreen.var_1095[var2].someByte)) {
+         if (this.sub_139(GameScreen.gameScreen.staminaItemsArr[var2].someByte)) {
             var1 = var2;
          }
       }
@@ -159,7 +159,7 @@ public class Class_2a9 {
       int var1 = 0;
 
       for(int var2 = 0; var2 < 5; ++var2) {
-         if (this.sub_139(GameScreen.gameScreen.var_1116[var2].someByte)) {
+         if (this.sub_139(GameScreen.gameScreen.attackSpeedItemsArr[var2].someByte)) {
             var1 = var2;
          }
       }
@@ -171,7 +171,7 @@ public class Class_2a9 {
       int var1 = 0;
 
       for(int var2 = 0; var2 < 6; ++var2) {
-         if (this.sub_139(GameScreen.gameScreen.var_10d4[var2].someByte)) {
+         if (this.sub_139(GameScreen.gameScreen.costumeItemsArr[var2].someByte)) {
             var1 = var2;
          }
       }
@@ -183,7 +183,7 @@ public class Class_2a9 {
       int var1 = 0;
 
       for(int var2 = 0; var2 < 14; ++var2) {
-         if (this.sub_139(GameScreen.gameScreen.var_1171[var2].someByte)) {
+         if (this.sub_139(GameScreen.gameScreen.weaponItemsArr[var2].someByte)) {
             ++var1;
          }
       }
@@ -195,7 +195,7 @@ public class Class_2a9 {
       int var2 = 0;
 
       for(int var3 = 0; var3 < 14; ++var3) {
-         if (this.sub_139(GameScreen.gameScreen.var_1171[var3].someByte)) {
+         if (this.sub_139(GameScreen.gameScreen.weaponItemsArr[var3].someByte)) {
             ++var2;
             if (var2 == var1) {
                return var3;
@@ -432,9 +432,9 @@ public class Class_2a9 {
    }
 
    public void sub_640(int var1, int var2, String var3) {
-      Dto1 var4 = new Dto1();
-      var4.someInt3 = var2;
-      var4.someInt2 = var1;
+      StalkerStatDto var4 = new StalkerStatDto();
+      var4.statValue = var2;
+      var4.price = var1;
       var4.someStr = var3;
       this.var_6d7.addElement(var4);
    }
@@ -448,21 +448,21 @@ public class Class_2a9 {
    }
 
    public int sub_72c(int var1) {
-      Dto1 var2 = (Dto1)this.var_6d7.elementAt(var1);
-      return var2.someInt2;
+      StalkerStatDto var2 = (StalkerStatDto)this.var_6d7.elementAt(var1);
+      return var2.price;
    }
 
    public String sub_777(int var1) {
       if (var1 >= this.var_6d7.size()) {
          return "";
       } else {
-         Dto1 var2 = (Dto1)this.var_6d7.elementAt(var1);
+         StalkerStatDto var2 = (StalkerStatDto)this.var_6d7.elementAt(var1);
          Planet var3 = null;
-         if (var2.someInt2 < 20) {
-            var3 = GameScreen.gameScreen.sub_78d(var2.someInt3);
+         if (var2.price < 20) {
+            var3 = GameScreen.gameScreen.sub_78d(var2.statValue);
          }
 
-         switch(var2.someInt2) {
+         switch(var2.price) {
          case 1:
             return SomeUtilClass.getStr("УВЕЛИЧИЛОСЬ НАСЕЛЕНИЕ В ЛАГЕРЕ") + " " + var3.sub_96() + " " + SomeUtilClass.getStr("");
          case 2:
@@ -502,12 +502,12 @@ public class Class_2a9 {
          default:
             return "";
          case 20:
-            String var4 = GameScreen.gameScreen.sub_19a5(var2.someInt3, 0);
+            String var4 = GameScreen.gameScreen.sub_19a5(var2.statValue, 0);
             return SomeUtilClass.getStr("НАШИ УЧЕНЫЕ УСПЕШНО ИССЛЕДОВАЛИ -") + " " + var4;
          case 21:
-            return SomeUtilClass.getStr("НАШИ УЧЕНЫЕ УСПЕШНО ИССЛЕДОВАЛИ ТАИНСТВЕННЫЙ АРТЕФАКТ, ОБНАРУЖИВ, ЧТО ОН -") + " " + GameScreen.gameScreen.artifactsDictArr[var2.someInt3].var_144;
+            return SomeUtilClass.getStr("НАШИ УЧЕНЫЕ УСПЕШНО ИССЛЕДОВАЛИ ТАИНСТВЕННЫЙ АРТЕФАКТ, ОБНАРУЖИВ, ЧТО ОН -") + " " + GameScreen.gameScreen.artifactsDictArr[var2.statValue].var_144;
          case 22:
-            return SomeUtilClass.getStr("НАШИ УЧЕНЫЕ ПРОДВИНУЛИСЬ В ТЕОРИИ ДО") + " " + this.var_4b4[var2.someInt3] + " " + SomeUtilClass.getStr("УРОВНЯ") + " " + SomeUtilClass.scienceBranchNames2Arr[var2.someInt3] + ". " + SomeUtilClass.getStr("ТЕПЕРЬ МЫ МОЖЕМ ИССЛЕДОВАТЬ НОВЫЕ ПРАКТИЧЕСКИЕ ТЕХНОЛОГИИ");
+            return SomeUtilClass.getStr("НАШИ УЧЕНЫЕ ПРОДВИНУЛИСЬ В ТЕОРИИ ДО") + " " + this.var_4b4[var2.statValue] + " " + SomeUtilClass.getStr("УРОВНЯ") + " " + SomeUtilClass.scienceBranchNames2Arr[var2.statValue] + ". " + SomeUtilClass.getStr("ТЕПЕРЬ МЫ МОЖЕМ ИССЛЕДОВАТЬ НОВЫЕ ПРАКТИЧЕСКИЕ ТЕХНОЛОГИИ");
          case 30:
             return SomeUtilClass.getStr("ОТРЯД ") + var2.someStr + SomeUtilClass.getStr(" ВЗБУНТОВАЛСЯ И ДЕЗЕРТИРОВАЛ");
          case 31:
