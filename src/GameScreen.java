@@ -1236,7 +1236,7 @@ public class GameScreen extends GameCanvas implements Runnable {
 						this.var_9b3.var_409 = var1;
 						break;
 					case 4:
-						if (this.var_9b3.var_73e == null) {
+						if (this.var_9b3.equipmentChooseScreen == null) {
 							if (this.var_9b3.var_3c8 == 0) {
 								if (this.var_9b3.var_79a == null) {
 									this.var_9b3.var_79a = new Class_18c(SomeUtilClass.getStr("ИМЯ СТАЛКЕРА"),
@@ -1254,13 +1254,13 @@ public class GameScreen extends GameCanvas implements Runnable {
 									var6 = this.var_9b3.xPos + this.var_9b3.var_124 / 2;
 								}
 
-								this.var_9b3.var_73e = new SomeUpgradeDrawClass(this.var_9b3.var_3c8, var6,
-										(this.getHeight() - 97) / 2, 94, 97, 3158064);
+								this.var_9b3.equipmentChooseScreen = new SomeUpgradeDrawClass(this.var_9b3.var_3c8, var6,
+										(this.getHeight() - 97) / 2, 94, Class_4b3.EQUIPMENT_WINDOW_HEIGHT, 3158064);
 								this.var_9b3.sub_258();
 							}
 						} else {
 							this.var_9b3.sub_266();
-							this.var_9b3.var_73e = null;
+							this.var_9b3.equipmentChooseScreen = null;
 							this.var_9b3.sub_bd();
 						}
 						break;
@@ -1290,11 +1290,11 @@ public class GameScreen extends GameCanvas implements Runnable {
 
 									this.var_9b3.var_b77 = null;
 								}
-							} else if (this.var_9b3.var_73e == null) {
+							} else if (this.var_9b3.equipmentChooseScreen == null) {
 								this.var_9b3.drawUpgradesMenu();
 							} else {
 								this.var_9b3.sub_266();
-								this.var_9b3.var_73e = null;
+								this.var_9b3.equipmentChooseScreen = null;
 							}
 						} else if (this.var_9b3.var_3c8 == 0) {
 							this.var_9b3.var_b03 = !this.var_9b3.var_b03;
@@ -1823,8 +1823,8 @@ public class GameScreen extends GameCanvas implements Runnable {
 
 				if (this.var_9b3.menuId == 4) {
 					int var1 = this.var_9b3.var_409;
-					if (this.var_9b3.var_73e != null) {
-						this.var_9b3.var_73e = null;
+					if (this.var_9b3.equipmentChooseScreen != null) {
+						this.var_9b3.equipmentChooseScreen = null;
 					} else if (this.var_9b3.var_79a != null) {
 						this.var_9b3.var_79a = null;
 					} else {
@@ -1842,8 +1842,8 @@ public class GameScreen extends GameCanvas implements Runnable {
 						return;
 					}
 
-					if (this.var_9b3.var_73e != null) {
-						this.var_9b3.var_73e = null;
+					if (this.var_9b3.equipmentChooseScreen != null) {
+						this.var_9b3.equipmentChooseScreen = null;
 						return;
 					}
 

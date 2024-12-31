@@ -11,6 +11,7 @@ public class Class_4b3 {
 	
 	   public static final int DESC_WINDOW_HEIGHT = 65;
 	   public static final int SCIENCE_WINDOW_HEIGHT = 100;
+	   public static final int EQUIPMENT_WINDOW_HEIGHT = 120;
 	   public static final int UPGRADE_WINDOW_MARGIN = 10;
 	   public static final int DESC_WINDOW_BG_COLOR = 2171169;
 	
@@ -49,7 +50,7 @@ public class Class_4b3 {
 	public Image polImg = null;
 	public Vector rectArr = null;
 	public Random var_6f5 = null;
-	public SomeUpgradeDrawClass var_73e = null;
+	public SomeUpgradeDrawClass equipmentChooseScreen = null;
 	public Class_18c var_79a = null;
 	public Image colBtnImg = null;
 	public Image colPicImg = null;
@@ -615,8 +616,8 @@ public class Class_4b3 {
 					this.sub_23d(g);
 				}
 
-				if (this.var_73e != null) {
-					this.var_73e.sub_90(g);
+				if (this.equipmentChooseScreen != null) {
+					this.equipmentChooseScreen.sub_90(g);
 				}
 
 				if (this.var_79a != null) {
@@ -698,8 +699,8 @@ public class Class_4b3 {
 	}
 
 	public void sub_140() {
-		if (this.var_73e != null) {
-			this.var_73e.sub_1b3();
+		if (this.equipmentChooseScreen != null) {
+			this.equipmentChooseScreen.sub_1b3();
 		} else if (this.var_79a != null) {
 			this.var_79a.sub_4d();
 		} else if (this.var_b77 != null) {
@@ -763,8 +764,8 @@ public class Class_4b3 {
 	}
 
 	public void sub_18d() {
-		if (this.var_73e != null) {
-			this.var_73e.sub_1bf();
+		if (this.equipmentChooseScreen != null) {
+			this.equipmentChooseScreen.sub_1bf();
 		} else if (this.var_79a != null) {
 			this.var_79a.sub_82();
 		} else if (this.var_b77 != null) {
@@ -823,8 +824,8 @@ public class Class_4b3 {
 	public void sub_197() {
 		if (this.var_79a != null) {
 			this.var_79a.sub_a6();
-		} else if (this.var_73e != null) {
-			this.var_73e.sub_21e();
+		} else if (this.equipmentChooseScreen != null) {
+			this.equipmentChooseScreen.sub_21e();
 		} else if (this.var_b77 != null) {
 			this.var_b77.sub_197();
 		} else {
@@ -894,8 +895,8 @@ public class Class_4b3 {
 	public void sub_1ea() {
 		if (this.var_79a != null) {
 			this.var_79a.sub_e3();
-		} else if (this.var_73e != null) {
-			this.var_73e.sub_253();
+		} else if (this.equipmentChooseScreen != null) {
+			this.equipmentChooseScreen.sub_253();
 		} else if (this.var_b77 != null) {
 			this.var_b77.sub_1ea();
 		} else {
@@ -1019,47 +1020,47 @@ public class Class_4b3 {
 		case 1:
 			for (var1 = 0; var1 < 5; ++var1) {
 				if (GameScreen.gameScreen.var_d5c.sub_139(GameScreen.gameScreen.rangItemsArr[var1].someByte)) {
-					this.var_73e.addUpgradeToMenuList(GameScreen.gameScreen.rangItemsArr[var1].someStr, var1);
+					this.equipmentChooseScreen.addUpgradeToMenuList(GameScreen.gameScreen.rangItemsArr[var1].someStr, var1);
 				}
 			}
 
-			this.var_73e.drawBuildHeader("РАНГ");
+			this.equipmentChooseScreen.drawBuildHeader("РАНГ");
 			break;
 		case 2:
 			for (var1 = 0; var1 < 5; ++var1) {
 				if (GameScreen.gameScreen.var_d5c.sub_139(GameScreen.gameScreen.staminaItemsArr[var1].someByte)) {
-					this.var_73e.addUpgradeToMenuList(GameScreen.gameScreen.staminaItemsArr[var1].someStr, var1);
+					this.equipmentChooseScreen.addUpgradeToMenuList(GameScreen.gameScreen.staminaItemsArr[var1].someStr, var1);
 				}
 			}
 
-			this.var_73e.drawBuildHeader("ВЫНОСЛИВОСТЬ");
+			this.equipmentChooseScreen.drawBuildHeader("ВЫНОСЛИВОСТЬ");
 			break;
 		case 3:
 			for (var1 = 0; var1 < 6; ++var1) {
 				if (GameScreen.gameScreen.var_d5c.sub_139(GameScreen.gameScreen.costumeItemsArr[var1].someByte)) {
-					this.var_73e.addUpgradeToMenuList(GameScreen.gameScreen.costumeItemsArr[var1].someStr, var1);
+					this.equipmentChooseScreen.addUpgradeToMenuList(GameScreen.gameScreen.costumeItemsArr[var1].someStr, var1);
 				}
 			}
 
-			this.var_73e.drawBuildHeader("БРОНЯ");
+			this.equipmentChooseScreen.drawBuildHeader("БРОНЯ");
 			break;
 		case 4:
 			for (var1 = 0; var1 < 5; ++var1) {
 				if (GameScreen.gameScreen.var_d5c.sub_139(GameScreen.gameScreen.attackSpeedItemsArr[var1].someByte)) {
-					this.var_73e.addUpgradeToMenuList(GameScreen.gameScreen.attackSpeedItemsArr[var1].someStr, var1);
+					this.equipmentChooseScreen.addUpgradeToMenuList(GameScreen.gameScreen.attackSpeedItemsArr[var1].someStr, var1);
 				}
 			}
 
-			this.var_73e.drawBuildHeader("БОЕПРИПАСЫ");
+			this.equipmentChooseScreen.drawBuildHeader("БОЕПРИПАСЫ");
 			break;
 		case 5:
 			for (var1 = 0; var1 < 14; ++var1) {
 				if (GameScreen.gameScreen.var_d5c.sub_139(GameScreen.gameScreen.weaponItemsArr[var1].someByte)) {
-					this.var_73e.addUpgradeToMenuList(GameScreen.gameScreen.weaponItemsArr[var1].someStr, var1);
+					this.equipmentChooseScreen.addUpgradeToMenuList(GameScreen.gameScreen.weaponItemsArr[var1].someStr, var1);
 				}
 			}
 
-			this.var_73e.drawBuildHeader("ОРУЖИЕ");
+			this.equipmentChooseScreen.drawBuildHeader("ОРУЖИЕ");
 		}
 
 	}
@@ -1068,26 +1069,26 @@ public class Class_4b3 {
 		if (this.menuId == 4) {
 			switch (this.var_3c8) {
 			case 1:
-				this.var_57d.sub_1d7(28, this.var_73e.sub_2eb());
+				this.var_57d.sub_1d7(28, this.equipmentChooseScreen.sub_2eb());
 				break;
 			case 2:
-				this.var_57d.sub_1d7(20, this.var_73e.sub_2eb());
+				this.var_57d.sub_1d7(20, this.equipmentChooseScreen.sub_2eb());
 				this.var_57d.sub_1d7(12, 1);
 				break;
 			case 3:
-				this.var_57d.sub_1d7(8, this.var_73e.sub_2eb());
+				this.var_57d.sub_1d7(8, this.equipmentChooseScreen.sub_2eb());
 				this.var_57d.sub_1d7(0, 1);
 				break;
 			case 4:
-				this.var_57d.sub_1d7(24, this.var_73e.sub_2eb());
+				this.var_57d.sub_1d7(24, this.equipmentChooseScreen.sub_2eb());
 				break;
 			case 5:
-				this.var_57d.sub_449(this.var_73e.sub_2eb(), 1);
+				this.var_57d.sub_449(this.equipmentChooseScreen.sub_2eb(), 1);
 			}
 		}
 
 		if (this.menuId == 7) {
-			this.somePlanet.var_1df.jobId = this.var_73e.sub_2eb();
+			this.somePlanet.var_1df.jobId = this.equipmentChooseScreen.sub_2eb();
 		}
 
 	}
@@ -1155,8 +1156,8 @@ public class Class_4b3 {
 		}
 
 		this.sub_2fc(g);
-		if (this.var_73e != null) {
-			this.var_73e.sub_90(g);
+		if (this.equipmentChooseScreen != null) {
+			this.equipmentChooseScreen.sub_90(g);
 		}
 
 		if (this.var_79a != null) {
@@ -1473,33 +1474,33 @@ public class Class_4b3 {
 	}
 
 	public void drawUpgradesMenu() {
-		if (this.var_73e == null) {
+		if (this.equipmentChooseScreen == null) {
 			int upgradeMenuXPos = this.var_124 - 118 - 5;
 			if (upgradeMenuXPos < (this.var_124 - 118) / 2) {
 				upgradeMenuXPos = (this.var_124 - 118) / 2;
 			}
 
-			this.var_73e = new SomeUpgradeDrawClass(10, upgradeMenuXPos, BASE_MENU_Y_POS, UPGRADE_WINDOW_WIDTH, UPGRADE_WINDOW_HEIGHT, 3158064);
-			this.var_73e.somePlanet = this.somePlanet;
-			this.var_73e.drawBuildHeader("ПОСТРОИТЬ");
-			this.var_73e.addUpgradeToMenuList(SomeUtilClass.getStr("ХАБАР"), 255);
-			this.var_73e.addUpgradeToMenuList(SomeUtilClass.getStr("ТОРГОВЛЯ"), 511);
-			this.var_73e.addUpgradeToMenuList(SomeUtilClass.getStr("ОТРЯД"), 767);
+			this.equipmentChooseScreen = new SomeUpgradeDrawClass(10, upgradeMenuXPos, BASE_MENU_Y_POS, UPGRADE_WINDOW_WIDTH, UPGRADE_WINDOW_HEIGHT, 3158064);
+			this.equipmentChooseScreen.somePlanet = this.somePlanet;
+			this.equipmentChooseScreen.drawBuildHeader("ПОСТРОИТЬ");
+			this.equipmentChooseScreen.addUpgradeToMenuList(SomeUtilClass.getStr("ХАБАР"), 255);
+			this.equipmentChooseScreen.addUpgradeToMenuList(SomeUtilClass.getStr("ТОРГОВЛЯ"), 511);
+			this.equipmentChooseScreen.addUpgradeToMenuList(SomeUtilClass.getStr("ОТРЯД"), 767);
 
 			int var2;
 			for (var2 = 0; var2 < GameScreen.gameScreen.var_d5c.projectsArr.length; ++var2) {
-				this.var_73e.addUpgradeToMenuList(GameScreen.gameScreen.var_d5c.projectsArr[var2].projectName,
+				this.equipmentChooseScreen.addUpgradeToMenuList(GameScreen.gameScreen.var_d5c.projectsArr[var2].projectName,
 						4095 + var2);
 			}
 
 			for (var2 = 0; var2 < 31; ++var2) {
 				if (!this.somePlanet.var_1df.sub_e3(var2)
 						&& GameScreen.gameScreen.var_d5c.sub_139(GameScreen.gameScreen.buildingDictArr[var2].var_1ed)) {
-					this.var_73e.addUpgradeToMenuList(GameScreen.gameScreen.buildingDictArr[var2].var_11, var2);
+					this.equipmentChooseScreen.addUpgradeToMenuList(GameScreen.gameScreen.buildingDictArr[var2].var_11, var2);
 				}
 			}
 
-			this.var_73e.sub_30d(this.somePlanet.var_1df.jobId);
+			this.equipmentChooseScreen.sub_30d(this.somePlanet.var_1df.jobId);
 		}
 	}
 

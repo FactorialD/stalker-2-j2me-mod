@@ -21,7 +21,7 @@ public class SomeUpgradeDrawClass extends Class_4b3 {
       super.var_c7c = windowHeight;
       this.descMenuId = descMenuId;
       this.var_83 = super.yPos + 25;
-      this.someYPos = super.yPos + windowHeight - DESC_WINDOW_HEIGHT - UPGRADE_WINDOW_MARGIN;
+      this.someYPos = super.yPos + windowHeight - 30;
       this.var_f5 = super.xPos + 5;
       super.var_5d4 = false;
       super.var_1f3 = windowHeight;
