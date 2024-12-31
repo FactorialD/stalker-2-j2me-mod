@@ -1,5 +1,6 @@
 MIDlet-Vendor: FactorialD
 MIDlet-Version: 1.0.3
+MIDlet-Icon: icon.png
 MicroEdition-Configuration: CLDC-1.0
 MIDlet-Name: Stalker 2 Mobile
 MIDlet-1: MIDlet-1,,Stars
