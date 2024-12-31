@@ -226,43 +226,43 @@ public class Class_35d extends Class_4b3 {
       this.sub_223(g);
       if (this.var_1d8 != null) {
          this.var_1d8.sub_108(g);
-         this.sub_514(g, this.var_1d8.xPos + 4, this.var_1d8.yPos + 11, this.var_1d8.var_124 - 8, 30);
+         this.drawInfoWindowFrame(g, this.var_1d8.xPos + 4, this.var_1d8.yPos + 11, this.var_1d8.var_124 - 8, DESC_WINDOW_HEIGHT);
          String var4 = GameScreen.gameScreen.sub_19a5(this.var_1a3, 1);
-         String var5 = "";
+         String scienceUpgradeDesc = "";
          if (GameScreen.gameScreen.sub_19a5(this.var_1a3, 2) != "OK") {
             this.var_1d8 = null;
             return;
          }
 
          if (var4 == "A") {
-            var5 = SomeUtilClass.getStr("ЗАЩИТА НОВОЙ БРОНИ ДЛЯ СТАЛКЕРОВ БУДЕТ ") + GameScreen.gameScreen.costumeItemsArr[GameScreen.gameScreen.var_1d2e].statValue;
+            scienceUpgradeDesc = SomeUtilClass.getStr("ЭТА БРОНЯ БУДЕТ ДАВАТЬ ЗАЩИТУ ") + GameScreen.gameScreen.costumeItemsArr[GameScreen.gameScreen.var_1d2e].statValue;
          }
 
          if (var4 == "B") {
-            var5 = GameScreen.gameScreen.passiveUpgradesDictArr[GameScreen.gameScreen.var_1d2e].var_144;
+            scienceUpgradeDesc = GameScreen.gameScreen.passiveUpgradesDictArr[GameScreen.gameScreen.var_1d2e].var_144;
          }
 
          if (var4 == "BU") {
-            var5 = GameScreen.gameScreen.buildingDictArr[GameScreen.gameScreen.var_1d2e].var_144;
+            scienceUpgradeDesc = GameScreen.gameScreen.buildingDictArr[GameScreen.gameScreen.var_1d2e].var_144;
          }
 
          if (var4 == "C") {
-            var5 = SomeUtilClass.getStr("МОЩНОСТЬ НОВЫХ БОЕПРИПАСОВ БУДЕТ ") + GameScreen.gameScreen.attackSpeedItemsArr[GameScreen.gameScreen.var_1d2e].statValue;
+            scienceUpgradeDesc = SomeUtilClass.getStr("МОЩНОСТЬ НОВЫХ БОЕПРИПАСОВ БУДЕТ ") + GameScreen.gameScreen.attackSpeedItemsArr[GameScreen.gameScreen.var_1d2e].statValue;
          }
 
          if (var4 == "E") {
-            var5 = SomeUtilClass.getStr("ВЫНОСЛИВОСТЬ СТАЛКЕРОВ БУДЕТ ") + GameScreen.gameScreen.staminaItemsArr[GameScreen.gameScreen.var_1d2e].statValue;
+            scienceUpgradeDesc = SomeUtilClass.getStr("С ЭТИМ ПРЕДМЕТОМ ВЫНОСЛИВОСТЬ СТАЛКЕРОВ БУДЕТ ") + GameScreen.gameScreen.staminaItemsArr[GameScreen.gameScreen.var_1d2e].statValue;
          }
 
          if (var4 == "W") {
-            var5 = SomeUtilClass.getStr("УРОН ОРУЖИЯ ") + GameScreen.gameScreen.weaponItemsArr[GameScreen.gameScreen.var_1d2e].statValue;
+            scienceUpgradeDesc = SomeUtilClass.getStr("УРОН ОРУЖИЯ: ") + GameScreen.gameScreen.weaponItemsArr[GameScreen.gameScreen.var_1d2e].statValue;
          }
 
          if (var4 == "ART") {
-            var5 = SomeUtilClass.getStr("ТАИНСТВЕННЫЙ АРТЕФАКТ НАЙДЕННЫЙ В ЛАГЕРЕ ") + GameScreen.gameScreen.artifactsDictArr[GameScreen.gameScreen.var_1d2e].var_68;
+            scienceUpgradeDesc = SomeUtilClass.getStr("ТАИНСТВЕННЫЙ АРТЕФАКТ НАЙДЕННЫЙ В ЛОКАЦИИ ") + GameScreen.gameScreen.artifactsDictArr[GameScreen.gameScreen.var_1d2e].var_68;
          }
 
-         SomeUtilClass.drawLittleTextInRect2(g, var5, this.var_1d8.xPos + 7, this.var_1d8.yPos + 11 + 5, this.var_1d8.xPos + this.var_1d8.var_124 - 5, this.var_1d8.yPos + 11 + 5 + 30);
+         SomeUtilClass.drawLittleTextInRect2(g, scienceUpgradeDesc, this.var_1d8.xPos + 7, this.var_1d8.yPos + 11 + 5, this.var_1d8.xPos + this.var_1d8.var_124 - 5, this.var_1d8.yPos + 11 + 5 + 30);
       }
 
       if (this.var_3a > 0 && this.var_3a < 10) {
@@ -519,8 +519,8 @@ public class Class_35d extends Class_4b3 {
 
    public void sub_33c() {
       if (this.var_1d8 == null) {
-         this.var_1d8 = new Class_4b3(8, (super.var_124 - 118) / 2, (super.windowHeight - 67) / 2, 118, 67, 3158064, (Planet)null);
-         this.var_1d8.var_1f3 = 67;
+         this.var_1d8 = new Class_4b3(8, (super.var_124 - 118) / 2, (super.windowHeight - SCIENCE_WINDOW_HEIGHT) / 2, 118, SCIENCE_WINDOW_HEIGHT, 3158064, (Planet)null);
+         this.var_1d8.var_1f3 = SCIENCE_WINDOW_HEIGHT;
          this.var_1a3 = this.sub_38e();
          if (this.var_1a3 == -1) {
             this.var_1d8 = null;

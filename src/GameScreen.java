@@ -3186,7 +3186,7 @@ public class GameScreen extends GameCanvas implements Runnable {
 
 	}
 
-	public int sub_fcf(Graphics var1, int var2, int var3, String var4, Image var5) {
+	public int sub_fcf(Graphics g, int var2, int var3, String var4, Image var5) {
 		int var6 = var4.length();
 
 		for (int var9 = 0; var9 < var6; ++var9) {
@@ -3195,11 +3195,11 @@ public class GameScreen extends GameCanvas implements Runnable {
 			if (var7 >= 1040 && var7 <= 1071) {
 				var8 = var7 - 1040;
 				if (var8 <= 15) {
-					var1.setClip(var2, var3, 5, 5);
-					var1.drawImage(var5, var2 - var8 * 5, var3, 20);
+					g.setClip(var2, var3, 5, 5);
+					g.drawImage(var5, var2 - var8 * 5, var3, 20);
 				} else {
-					var1.setClip(var2, var3, 5, 6);
-					var1.drawImage(var5, var2 - (var8 - 16) * 5, var3 - 5, 20);
+					g.setClip(var2, var3, 5, 6);
+					g.drawImage(var5, var2 - (var8 - 16) * 5, var3 - 5, 20);
 				}
 
 				if (var7 == 1044 || var7 == 1046 || var7 == 1052 || var7 == 1060 || var7 == 1064 || var7 == 1065
@@ -3212,23 +3212,23 @@ public class GameScreen extends GameCanvas implements Runnable {
 				}
 
 				if (var7 == 1049) {
-					var1.setClip(var2, var3 - 1, 4, 1);
-					var1.drawImage(var5, var2, var3 - 1, 20);
+					g.setClip(var2, var3 - 1, 4, 1);
+					g.drawImage(var5, var2, var3 - 1, 20);
 				}
 
 				var2 += 5;
 			} else {
 				var8 = this.otherSymbolsStr.indexOf(var7);
 				if (var8 != -1) {
-					var1.setClip(var2, var3, 5, 6);
-					var1.drawImage(var5, var2 - var8 * 5, var3 - 15, 20);
+					g.setClip(var2, var3, 5, 6);
+					g.drawImage(var5, var2 - var8 * 5, var3 - 15, 20);
 				}
 
 				var2 += 5;
 			}
 		}
 
-		var1.setClip(0, 0, this.getWidth(), this.getHeight());
+		g.setClip(0, 0, this.getWidth(), this.getHeight());
 		return var2;
 	}
 

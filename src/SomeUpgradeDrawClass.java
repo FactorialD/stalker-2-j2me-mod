@@ -120,7 +120,7 @@ public class SomeUpgradeDrawClass extends Class_4b3 {
 
             if (super.var_3c8 == temp) {
                g.setColor(2565927);
-               g.fillRect(this.var_f5, var6 + 2, super.var_124 - 5 - (this.var_f5 - super.xPos), 6);
+               g.fillRect(this.var_f5, var6 + 2, super.var_124 - 5 - (this.var_f5 - super.xPos), 6);//draw selected item
                g.setColor(3750201);
                g.drawLine(this.var_f5, var6 + 8, super.xPos + super.var_124 - 5, var6 + 8);
                g.setColor(4013373);
@@ -198,14 +198,14 @@ public class SomeUpgradeDrawClass extends Class_4b3 {
    public void drawUpgradeInfo(Graphics g, int buyId) {
       String var3 = "";
       if (this.descMenuId >= 1 && this.descMenuId <= 5) {
-         this.sub_514(g, super.xPos + 5, this.someYPos, super.var_124 - 10, 30);
+         this.drawInfoWindowFrame(g, super.xPos + 5, this.someYPos, super.var_124 - 10, DESC_WINDOW_HEIGHT);
       }
 
       if (this.descMenuId == 10) {
          if (buyId >= 4095) {
-            this.sub_514(g, super.xPos + 5, this.someYPos, super.var_124 - 10 - 35, 30);
+            this.drawInfoWindowFrame(g, super.xPos + 5, this.someYPos, super.var_124 - 10 - 35, DESC_WINDOW_HEIGHT);
          } else {
-            this.sub_514(g, super.xPos + 5, this.someYPos, super.var_124 - 10, 30);
+            this.drawInfoWindowFrame(g, super.xPos + 5, this.someYPos, super.var_124 - 10, DESC_WINDOW_HEIGHT);
          }
       }
 

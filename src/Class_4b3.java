@@ -10,6 +10,7 @@ public class Class_4b3 {
 	public static final int UPGRADE_WINDOW_HEIGHT = 190;
 	
 	   public static final int DESC_WINDOW_HEIGHT = 65;
+	   public static final int SCIENCE_WINDOW_HEIGHT = 100;
 	   public static final int UPGRADE_WINDOW_MARGIN = 10;
 	   public static final int DESC_WINDOW_BG_COLOR = 2171169;
 	
@@ -644,7 +645,7 @@ public class Class_4b3 {
 		}
 	}
 
-	public void sub_114(Graphics var1, int var2, int var3) {
+	public void sub_114(Graphics g, int var2, int var3) {
 		boolean var4 = true;
 		if (var3 == 1) {
 			var4 = GameScreen.gameScreen.var_16d3;
@@ -657,7 +658,7 @@ public class Class_4b3 {
 			var5 = SomeUtilClass.getStr("ВЫКЛ");
 		}
 
-		GameScreen.gameScreen.drawFancyText(var1, this.xPos + this.var_124 - 5 - var5.length() * 8, var2, var5,
+		GameScreen.gameScreen.drawFancyText(g, this.xPos + this.var_124 - 5 - var5.length() * 8, var2, var5,
 				this.var_42f);
 	}
 
@@ -1523,25 +1524,25 @@ public class Class_4b3 {
 		}
 	}
 
-	public void sub_514(Graphics var1, int var2, int var3, int var4, int var5) {
-		var1.setColor(2171169);
-		var1.fillRect(var2, var3, var4, var5);
-		var1.setColor(789516);
-		var1.drawLine(var2 + 1, var3 + 1, var2 + var4 - 1, var3 + 1);
-		var1.setColor(1315860);
-		var1.drawLine(var2 + 1, var3 + 2, var2 + 1, var3 + var5 - 2);
-		var1.setColor(1776411);
-		var1.drawLine(var2 + 2, var3 + 1, var2 + var4 - 1, var3 + 1);
-		var1.setColor(1973790);
-		var1.drawLine(var2 + 3, var3 + 2, var2 + 3, var3 + var5 - 2);
-		var1.setColor(9868950);
-		var1.drawLine(var2 + 1, var3 + var5, var2 + var4, var3 + var5);
-		var1.setColor(5855577);
-		var1.drawLine(var2 + 2, var3 + var5 - 1, var2 + var4, var3 + var5 - 1);
-		var1.setColor(4144959);
-		var1.drawLine(var2 + var4 - 1, var3 + 3, var2 + var4 - 1, var3 + var5 - 2);
-		var1.setColor(5658198);
-		var1.drawLine(var2 + var4, var3 + 2, var2 + var4, var3 + var5 - 2);
+	public void drawInfoWindowFrame(Graphics g, int xPos, int yPos, int width, int length) {
+		g.setColor(2171169);
+		g.fillRect(xPos, yPos, width, length);
+		g.setColor(789516);
+		g.drawLine(xPos + 1, yPos + 1, xPos + width - 1, yPos + 1);
+		g.setColor(1315860);
+		g.drawLine(xPos + 1, yPos + 2, xPos + 1, yPos + length - 2);
+		g.setColor(1776411);
+		g.drawLine(xPos + 2, yPos + 1, xPos + width - 1, yPos + 1);
+		g.setColor(1973790);
+		g.drawLine(xPos + 3, yPos + 2, xPos + 3, yPos + length - 2);
+		g.setColor(9868950);
+		g.drawLine(xPos + 1, yPos + length, xPos + width, yPos + length);
+		g.setColor(5855577);
+		g.drawLine(xPos + 2, yPos + length - 1, xPos + width, yPos + length - 1);
+		g.setColor(4144959);
+		g.drawLine(xPos + width - 1, yPos + 3, xPos + width - 1, yPos + length - 2);
+		g.setColor(5658198);
+		g.drawLine(xPos + width, yPos + 2, xPos + width, yPos + length - 2);
 	}
 
 	public void drawColonyInfoBg(Graphics var1, int var2, int var3, int var4, int var5) {
